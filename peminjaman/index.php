@@ -26,8 +26,10 @@ $result = mysqli_query($conn, $sql);
       type="button" class="btn-close" data-bs-dismiss="alert"></button></div><?php endif; ?>
 <div class="mb-3">
   <a href="?filter=semua" class="btn btn-sm <?= $f == 'semua' ? 'btn-primary' : 'btn-outline-secondary' ?>">Semua</a>
-  <a href="?filter=dipinjam" class="btn btn-sm <?= $f == 'dipinjam' ? 'btn-warning' : 'btn-outline-warning' ?>">Dipinjam</a>
-  <a href="?filter=terlambat" class="btn btn-sm <?= $f == 'terlambat' ? 'btn-danger' : 'btn-outline-danger' ?>">Terlambat</a>
+  <a href="?filter=dipinjam"
+    class="btn btn-sm <?= $f == 'dipinjam' ? 'btn-warning' : 'btn-outline-warning' ?>">Dipinjam</a>
+  <a href="?filter=terlambat"
+    class="btn btn-sm <?= $f == 'terlambat' ? 'btn-danger' : 'btn-outline-danger' ?>">Terlambat</a>
   <a href="?filter=dikembalikan"
     class="btn btn-sm <?= $f == 'dikembalikan' ? 'btn-success' : 'btn-outline-success' ?>">Dikembalikan</a>
 </div>

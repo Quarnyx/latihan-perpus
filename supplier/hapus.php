@@ -6,8 +6,8 @@ if (!isset($_SESSION['petugas_id'])) {
     exit;
 }
 $id = (int) $_GET['id'];
-mysqli_query($conn, "DELETE FROM buku WHERE id=$id");
-$_SESSION['pesan'] = "Buku berhasil dihapus!";
-header("Location:index.php");
+mysqli_query($conn, "DELETE FROM supplier WHERE id=$id");
+$_SESSION['pesan'] = 'Data berhasil dihapus!';
+header('Location:index.php');
 exit;
 ?>

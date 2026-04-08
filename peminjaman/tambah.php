@@ -31,12 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $today = date('Y-m-d');
 $due = date('Y-m-d', strtotime('+7 days'));
 ?>
+
 <div class="page-header d-flex justify-content-between align-items-center">
   <h4 class="mb-0"><i class="bi bi-arrow-up-circle me-2"></i>Tambah Peminjaman</h4>
   <a href="index.php" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Kembali</a>
 </div>
 <?php if (isset($error)): ?>
-  <div class="alert alert-danger"><i class="bi bi-exclamation-circle me-2"></i><?= $error ?></div><?php endif; ?>
+  <div class="alert alert-danger"><i class="bi bi-exclamation-circle me-2"></i>
+    <?= $error ?>
+  </div>
+<?php endif; ?>
 <div class="card">
   <div class="card-body">
     <form method="POST">
@@ -46,7 +50,10 @@ $due = date('Y-m-d', strtotime('+7 days'));
             <option value="">-- Pilih Anggota --</option>
             <?php $q = mysqli_query($conn, "SELECT id,nis,nama_anggota FROM anggota WHERE status='aktif' ORDER BY nama_anggota");
             while ($r = mysqli_fetch_assoc($q)): ?>
-              <option value="<?= $r['id'] ?>"><?= $r['nis'] ?> - <?= htmlspecialchars($r['nama_anggota']) ?></option>
+              <option value="<?= $r['id'] ?>">
+                <?= $r['nis'] ?> -
+                <?= htmlspecialchars($r['nama_anggota']) ?>
+              </option>
             <?php endwhile; ?>
           </select>
         </div>
@@ -55,8 +62,11 @@ $due = date('Y-m-d', strtotime('+7 days'));
             <option value="">-- Pilih Buku (stok tersedia) --</option>
             <?php $q = mysqli_query($conn, "SELECT id,kode_buku,nama_buku,stok FROM buku WHERE stok>0 ORDER BY nama_buku");
             while ($r = mysqli_fetch_assoc($q)): ?>
-              <option value="<?= $r['id'] ?>">[<?= $r['kode_buku'] ?>] <?= htmlspecialchars($r['nama_buku']) ?> (Stok:
-                <?= $r['stok'] ?>)</option>
+              <option value="<?= $r['id'] ?>">[
+                <?= $r['kode_buku'] ?>]
+                <?= htmlspecialchars($r['nama_buku']) ?> (Stok:
+                <?= $r['stok'] ?>)
+              </option>
             <?php endwhile; ?>
           </select>
         </div>
